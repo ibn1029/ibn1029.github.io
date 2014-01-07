@@ -20,10 +20,20 @@
     body {
         color: #333333;
         font-family: 'Lato','ヒラギノ角ゴ Pro W5','Hiragino Kaku Gothic Pro','Osaka','Meiryo',sans-serif;
-        padding-top: 70px;
+        padding-top: 90px;
     }
     h1.app { margin: 2px; }
     audio { width: 100%; }
+    .tab {
+        background-color: #333;
+        color: #EEE;
+        margin-top: -5.12px;
+    }
+    .tab-border {
+        border-left: 1px solid rgba(0,0,0,1);
+        box-shadow: rgba(255,255,255,.1) -1px 0 0 inset;
+    }
+
     .display-block {
         display: block;
         width: 100%;
@@ -37,7 +47,7 @@
         -moz-opacity: 0.30;
         -ms-filter: "alpha(opacity=30)";
     }
-
+    .archive { padding-left:32px; }
     .program {
         font-weight: bold;
     }
@@ -46,19 +56,11 @@
         //font-size: 80%;
     }
     .ok-size {
-        margin-top: 50%;
-        margin-bottom: 50%;
-        font-size: 200%;
+        margin-top: 28%;
+        margin-bottom: 28%;
+        font-size: 240%;
     }
 
-    .tab {
-        background-color: #333;
-        color: #EEE;
-    }
-    .tab-border {
-        border-left: 1px solid rgba(0,0,0,1);
-        box-shadow: rgba(255,255,255,.1) -1px 0 0 inset;
-    }
   </style>
 
   <script>
@@ -112,18 +114,27 @@
           <source src="http://media.soundcloud.com/stream/POu0bXy1H2bl?secret_token=s-kMJa5&stream_token=kMJa5" type="audio/mpeg">
           <p>Your browser does not support the audio element.</p>
         </audio>
-        <!--
-        <div>
-          <button onclick="document.getElementById('demo').play()">Play the Audio</button>
-          <button onclick="document.getElementById('demo').pause()">Pause the Audio</button>
-          <button onclick="document.getElementById('demo').volume+=0.1">Increase Volume</button>
-          <button onclick="document.getElementById('demo').volume-=0.1">Decrease Volume</button>
+        <div class="row tab">
+          <div class="col-xs-6 text-center tab-border">
+            <h4 ng-class="{ 'active': active }">
+              <span class="glyphicon glyphicon-cloud-upload"></span> Archives
+            </h4>
+          </div>
+          <div class="col-xs-4 text-right">
+            <h4 ng-class="{ 'active': active }">
+              <span class="glyphicon glyphicon-list-alt"></span> Playlist 
+            </h4>
+          </div>
+          <div class="col-xs-2 text-left">
+            <h4 ng-class="{ 'active': active }">
+              <span class="badge" ng-show="playlist > 0">{{playlist}}</span>
+            </h4>
+          </div>
         </div>
-        -->
       </div>
     </div>
   <div>
-
+<>
   <div class="row">
     <div class="col-xs-12">
       <table class="table table-condensed table-striped table-hover">
@@ -131,7 +142,7 @@
           <td ng-class="{ 'added': archive.added }">
             <a href="#" onclick="return false;" ng-click="click(archive)">
               <div class="row display-block">
-                <div class="col-xs-10">
+                <div class="col-xs-10 archive">
                   <div class="program">{{archive.program}}</div>
                   <div class="onair">{{archive.onair}}</div>
                   <div class="dj">{{archive.dj}}</div>
@@ -149,22 +160,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <!--<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">-->
-      <div class="navbar-default navbar-fixed-bottom">
-        <div class="row tab">
-          <div class="col-xs-6 text-center tab-border">
-            <h4 ng-class="{ 'active': active }">
-              <span class="glyphicon glyphicon-cloud-upload"></span> Archives
-            </h4>
-          </div>
-          <div class="col-xs-6 text-center">
-            <h4 ng-class="{ 'active': active }">
-              <span class="glyphicon glyphicon-list-alt"></span> Playlist 
-              <span class="badge" ng-show="playlist > 0">{{playlist}}</span>
-            </h4>
-          </div>
-        </div>
-      <div>
+      <p class="text-center"><small>ap.blockhash.info</small></p>
     </div>
   </div>
 
