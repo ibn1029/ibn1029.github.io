@@ -105,58 +105,50 @@
 
 <body>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
-      <div class="navbar-default navbar-fixed-top">
-        <h1 class="app">Archive Player</h1>
-        <audio id="demo" controls> 
-          <source src="http://media.soundcloud.com/stream/POu0bXy1H2bl?secret_token=s-kMJa5&stream_token=kMJa5" type="audio/mpeg">
-          <p>Your browser does not support the audio element.</p>
-        </audio>
-        <div class="row tab">
-          <div class="col-xs-6 text-center tab-border">
-            <h4 ng-class="{ 'active': active }">
-              <span class="glyphicon glyphicon-cloud-upload"></span> Archives
-            </h4>
-          </div>
-          <div class="col-xs-4 text-right">
-            <h4 ng-class="{ 'active': active }">
-              <span class="glyphicon glyphicon-list-alt"></span> Playlist 
-            </h4>
-          </div>
-          <div class="col-xs-2 text-left">
-            <h4 ng-class="{ 'active': active }">
-              <span class="badge" ng-show="playlist > 0">{{playlist}}</span>
-            </h4>
-          </div>
-        </div>
+  <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
+  <div class="navbar-default navbar-fixed-top">
+    <h1 class="app">Archive Player</h1>
+    <audio id="demo" controls> 
+      <source src="http://media.soundcloud.com/stream/POu0bXy1H2bl?secret_token=s-kMJa5&stream_token=kMJa5" type="audio/mpeg">
+      <p>Your browser does not support the audio element.</p>
+    </audio>
+    <div class="row tab">
+      <div class="col-xs-6 text-center tab-border">
+        <h4 ng-class="{ 'active': active }">
+          <span class="glyphicon glyphicon-cloud-upload"></span> Archives
+        </h4>
+      </div>
+      <div class="col-xs-4 text-right">
+        <h4 ng-class="{ 'active': active }">
+          <span class="glyphicon glyphicon-list-alt"></span> Playlist 
+        </h4>
+      </div>
+      <div class="col-xs-2 text-left">
+        <h4 ng-class="{ 'active': active }">
+          <span class="badge" ng-show="playlist > 0">{{playlist}}</span>
+        </h4>
       </div>
     </div>
-  <div>
-<>
-  <div class="row">
-    <div class="col-xs-12">
-      <table class="table table-condensed table-striped table-hover">
-        <tr ng-repeat="archive in archives">
-          <td ng-class="{ 'added': archive.added }">
-            <a href="#" onclick="return false;" ng-click="click(archive)">
-              <div class="row display-block">
-                <div class="col-xs-10 archive">
-                  <div class="program">{{archive.program}}</div>
-                  <div class="onair">{{archive.onair}}</div>
-                  <div class="dj">{{archive.dj}}</div>
-                </div>
-                <div class="col-xs-2">
-                  <span class="glyphicon glyphicon-ok-sign ok-size" ng-show="archive.added"><span>
-                </div>
-              </div>
-            </a>
-          </td>
-        </tr>
-      </table>
-    </div>
   </div>
+
+  <table class="table table-condensed table-striped table-hover">
+    <tr ng-repeat="archive in archives">
+      <td ng-class="{ 'added': archive.added }">
+        <a href="#" onclick="return false;" ng-click="click(archive)">
+          <div class="row display-block">
+            <div class="col-xs-10 archive">
+              <div class="program">{{archive.program}}</div>
+              <div class="onair">{{archive.onair}}</div>
+              <div class="dj">{{archive.dj}}</div>
+            </div>
+            <div class="col-xs-2">
+              <span class="glyphicon glyphicon-ok-sign ok-size" ng-show="archive.added"><span>
+            </div>
+          </div>
+        </a>
+      </td>
+    </tr>
+  </table>
 
   <div class="row">
     <div class="col-xs-12">
