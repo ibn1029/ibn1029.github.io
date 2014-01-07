@@ -29,12 +29,15 @@
     }
     .tab {
         background-color: #333;
-        color: #EEE;
+        color: #666;
         margin-top: -5.12px;
     }
     .tab-border {
         border-left: 1px solid rgba(0,0,0,1);
         box-shadow: rgba(255,255,255,.1) -1px 0 0 inset;
+    }
+    .tab .active {
+        color: #EEE;
     }
 
     .display-block {
@@ -63,6 +66,14 @@
         font-size: 2.8em;
     }
 
+    .footer {
+        height: 30px;
+        background-color: #333;
+        color: #EEE;
+        border-top: 1px solid rgba(0,0,0,1);
+        box-shadow: rgba(255,255,255,.1) 0 1px 0 inset;
+    }
+
   </style>
 
   <script>
@@ -75,30 +86,38 @@
     var myApp = angular.module("myApp", []);
     myApp.controller("myCtrl", [ "$scope", function($scope) {
         $scope.archives = [
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
-            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'}
+            { program: '1111 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf0'},
+            { program: '2222 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf1'},
+            { program: '3333 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf2'},
+            { program: '4444 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf3'},
+            { program: '5555 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf4'},
+            { program: '6666 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf5'},
+            { program: '7777 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf6'},
+            { program: '8888 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf7'},
+            { program: '9999 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf8'},
+            { program: '0000 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf9'}
         ];
-        $scope.playlist = 0;
 
-        $scope.click = function (archive) {
-            console.log('add playlist: '+ archive.id);
+        $scope.current_tab = 'archives';
+        $scope.changeTab = function (tab) {
+           $scope.current_tab = tab;
+        }
+
+        $scope.playlist = [];
+        $scope.playlist_count = 0;
+        $scope.addPlaylist = function (archive) {
             if (archive.added) {
-                archive.added = false;
-                $scope.playlist = $scope.playlist - 1;
+                $scope.removePlaylist(archive);
             } else {
                 archive.added = true;
-                $scope.playlist = $scope.playlist + 1;
+                $scope.playlist.push(archive);
             }
-            console.log('playlust: '+ $scope.playlist);
+        }
+        $scope.removePlaylist = function (archive) {
+            archive.added = false;
+            $scope.playlist = $scope.playlist.filter(function (item, index) {
+                if (item.id != archive.id) return item;
+            });
         }
 
     }]);
@@ -115,27 +134,27 @@
     </audio>
     <div class="row tab">
       <div class="col-xs-6 text-center tab-border">
-        <h4 ng-class="{ 'active': active }">
+        <h4 ng-class="{ 'active': current_tab == 'archives' }" ng-click="changeTab('archives')">
           <span class="glyphicon glyphicon-cloud-upload"></span> Archives
         </h4>
       </div>
       <div class="col-xs-4 text-right">
-        <h4 ng-class="{ 'active': active }">
+        <h4 ng-class="{ 'active': current_tab == 'playlist' }" ng-click="changeTab('playlist')">
           <span class="glyphicon glyphicon-list-alt"></span> Playlist 
         </h4>
       </div>
       <div class="col-xs-2 text-left">
         <h4 ng-class="{ 'active': active }">
-          <span class="badge" ng-show="playlist > 0">{{playlist}}</span>
+          <span class="badge" ng-show="playlist.length > 0">{{playlist.length}}</span>
         </h4>
       </div>
     </div>
   </div>
 
   <table class="table table-condensed table-striped table-hover">
-    <tr ng-repeat="archive in archives">
+    <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-class="{ 'added': archive.added }">
-        <a href="#" onclick="return false;" ng-click="click(archive)">
+        <a href="#" onclick="return false;" ng-click="addPlaylist(archive)">
           <div class="row display-block">
             <div class="col-xs-10 archive">
               <div class="program">{{archive.program}}</div>
@@ -149,9 +168,30 @@
         </a>
       </td>
     </tr>
+
+    <tr ng-show="current_tab == 'playlist' && playlist.length == 0">
+      <td><p class="text-center">Archive is not selected.</p></td>
+    </tr>
+    <tr ng-show="current_tab == 'playlist'" ng-repeat="archive in playlist">
+      <td>
+        <a href="#" onclick="return false;" ng-click="removePlaylist(archive)">
+          <div class="row display-block">
+            <div class="col-xs-10 archive">
+              <div class="program">{{archive.program}}</div>
+              <div class="onair">{{archive.onair}}</div>
+              <div class="dj">{{archive.dj}}</div>
+            </div>
+            <div class="col-xs-2">
+              <span class="glyphicon glyphicon-volume-up ok-center" ng-show="$index == 0"></span>
+              <span class="glyphicon glyphicon-ok-sign ok-center" ng-show="$index > 0"></span>
+            </div>
+          </div>
+        </a>
+      </td>
+    </tr>
   </table>
-  
-  <p class="text-center"><small>ap.blockhash.info</small></p>
+
+  <div class="footer text-center"><small>ap.blockhash.info</small></div>
 
 </body>
 </html>
