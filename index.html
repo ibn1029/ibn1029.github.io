@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app='myApp' ng-controller="myCtrl">
+<head>
+  <title>Archive Player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <style>
+    body {
+        color: #333333;
+        font-family: 'Lato','ヒラギノ角ゴ Pro W5','Hiragino Kaku Gothic Pro','Osaka','Meiryo',sans-serif;
+        padding-top: 70px;
+    }
+    h1.app { margin: 2px; }
+    audio { width: 100%; }
+    .display-block {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    a:link,a:visited,a:hover,a:active { color: #333333; }
+    .display-block a:hover { text-decoration: none; }
+    .added {
+        opacity: 0.30;
+        filter: alpha(opacity=30);
+        -moz-opacity: 0.30;
+        -ms-filter: "alpha(opacity=30)";
+    }
+
+    .program {
+        font-weight: bold;
+    }
+    .onair {
+        color: #FF0D00;
+        //font-size: 80%;
+    }
+    .ok-size {
+        margin-top: 50%;
+        margin-bottom: 50%;
+        font-size: 200%;
+    }
+
+    .tab {
+        background-color: #333;
+        color: #EEE;
+    }
+    .tab-border {
+        border-left: 1px solid rgba(0,0,0,1);
+        box-shadow: rgba(255,255,255,.1) -1px 0 0 inset;
+    }
+  </style>
+
+  <script>
+    var audio = new Audio();
+    function audioEnded(){
+        alert();
+    }
+    audio.addEventListener("ended",audioEnded,false);
+
+    var myApp = angular.module("myApp", []);
+    myApp.controller("myCtrl", [ "$scope", function($scope) {
+        $scope.archives = [
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'},
+            { program: 'hogehoge radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf'}
+        ];
+        $scope.playlist = 0;
+
+        $scope.click = function (archive) {
+            console.log('add playlist: '+ archive.id);
+            if (archive.added) {
+                archive.added = false;
+                $scope.playlist = $scope.playlist - 1;
+            } else {
+                archive.added = true;
+                $scope.playlist = $scope.playlist + 1;
+            }
+            console.log('playlust: '+ $scope.playlist);
+        }
+
+    }]);
+  </script>
+</head>
+
+<body>
+  <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
+  <div class="navbar-default navbar-fixed-top">
+    <h1 class="app">Archive Player</h1>
+    <audio id="demo" controls> 
+      <!--
+      <source src="http://media.soundcloud.com/stream/POu0bXy1H2bl?secret_token=s-kMJa5&stream_token=kMJa5" type="audio/mpeg">
+      -->
+      <p>Your browser does not support the audio element.</p>
+    </audio>
+    <!--
+    <div>
+      <button onclick="document.getElementById('demo').play()">Play the Audio</button>
+      <button onclick="document.getElementById('demo').pause()">Pause the Audio</button>
+      <button onclick="document.getElementById('demo').volume+=0.1">Increase Volume</button>
+      <button onclick="document.getElementById('demo').volume-=0.1">Decrease Volume</button>
+    </div>
+    -->
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-condensed table-striped table-hover">
+        <tr class="display-block" ng-repeat="archive in archives">
+          <td ng-class="{ 'added': archive.added }">
+            <a href="#" onclick="return false;" ng-click="click(archive)">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="program">{{archive.program}}</div>
+                  <div class="onair">{{archive.onair}}</div>
+                  <div class="dj">{{archive.dj}}</div>
+                </div>
+                <div class="col-xs-2">
+                  <span class="glyphicon glyphicon-ok-sign ok-size" ng-show="archive.added"><span>
+                </div>
+              </div>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!--<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">-->
+  <div class="navbar-default navbar-fixed-bottom">
+    <div class="row tab">
+      <div class="col-xs-6 text-center tab-border">
+        <h4 ng-class="{ 'active': active }">
+          <span class="glyphicon glyphicon-cloud-upload"></span> Archives
+        </h4>
+      </div>
+      <div class="col-xs-6 text-center">
+        <h4 ng-class="{ 'active': active }">
+          <span class="glyphicon glyphicon-list-alt"></span> Playlist 
+          <span class="badge" ng-show="playlist > 0">{{playlist}}</span>
+        </h4>
+      </div>
+    </div>
+  <div>
+
+</body>
+</html>
+
