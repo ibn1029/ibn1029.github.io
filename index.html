@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
@@ -62,10 +63,9 @@
         color: #FF0D00;
         font-size: x-small;
     }
-    .ok-center {
-        margin-top: 25%;
-        margin-bottom: 25%;
-        font-size: 2.6em;
+    .vcenter {
+        margin-top: 30%;
+        font-size: 3em;
     }
 
     .footer {
@@ -137,7 +137,7 @@
     <div class="row tab">
       <div class="col-xs-6 text-center tab-border">
         <h4 ng-class="{ 'active': current_tab == 'archives' }" ng-click="changeTab('archives')">
-          <span class="glyphicon glyphicon-cloud-upload"></span> Archives
+          <i class="fa fa-cloud"></i> Archives
         </h4>
       </div>
       <div class="col-xs-4 text-right">
@@ -164,7 +164,7 @@
               <div class="dj">{{archive.dj}}</div>
             </div>
             <div class="col-xs-2">
-              <span class="glyphicon glyphicon-ok-sign ok-center" ng-show="archive.added"><span>
+              <i class="fa fa-check-circle vcenter" ng-show="archive.added"></i>
             </div>
           </div>
         </a>
@@ -184,8 +184,8 @@
               <div class="dj">{{archive.dj}}</div>
             </div>
             <div class="col-xs-2">
-              <span class="glyphicon glyphicon-volume-up ok-center" ng-show="$index == 0"></span>
-              <span class="glyphicon glyphicon-ok-sign ok-center" ng-show="$index > 0"></span>
+              <i class="fa fa-cloud-download vcenter" ng-show="$index == 0"></i>
+              <i class="fa fa-check-circle vcenter" ng-show="$index > 0"></i>
             </div>
           </div>
         </a>
