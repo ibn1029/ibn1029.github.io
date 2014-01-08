@@ -95,7 +95,7 @@
             { program: '0000 radio', onair: '2014/01/01(MON)18:00-19:00 ON AIR', dj: 'Inu-Dog/Neko-Cat', id:'asdf9', url: '/001.mp3' }
         ];
 
-        $scope.current_tab = 'archives';
+        $scope.current_tab = 'archives'; // 初期タブ
         $scope.changeTab = function (tab) {
            $scope.current_tab = tab;
         }
@@ -106,19 +106,22 @@
 
         $scope.selectArchive = function (archive) {
             if ($scope.playlist.length > 0) {
+                console.log('current :' +  $scope.playlist[0].url);
                 $scope.current_url = $scope.playlist[0].url;
             }
 
             if (archive.selected) {
                 $scope.removeArchive(archive);
             } else {
-                archive.selected = true;
-                $scope.playlist.push(archive);
+                $scope.addAchive(archive);
             }
-            // Playlistの1番目が変わるとき
-            if ($scope.playlist.length > 0 && $scope.current_url != $scope.playlist[0].url) {
-                $scope.playArchive($scope.playlist[0]);
-            }
+        }
+
+        $scope.addAchive = function (archive) {
+            console.log('add');
+            archive.selected = true;
+            $scope.playlist.push(archive);
+            $scope.checkPlaylist();
         }
 
         $scope.removeArchive = function (archive) {
@@ -127,12 +130,17 @@
             $scope.playlist = $scope.playlist.filter(function (item, index) {
                 if (item.id != archive.id) return item;
             });
+            $scope.checkPlaylist();
+        }
+
+        $scope.checkPlaylist = function() {
             // Playlistの1番目が変わるとき
             if ($scope.playlist.length > 0 && $scope.current_url != $scope.playlist[0].url) {
                 $scope.playArchive($scope.playlist[0]);
 
             // Playlistが無い時は初期化する
-            } else {
+            } else if ($scope.playlist.length == 0) {
+                console.log('init');
                 $scope.audio.pause();
                 $scope.audio.currentTime = 0;
                 $("#audio source").remove();
