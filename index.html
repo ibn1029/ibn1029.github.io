@@ -105,7 +105,7 @@
 
         $scope.selectArchive = function (archive) {
             if ($scope.playlist.length > 0) {
-                console.log('current :' +  $scope.playlist[0].url);
+                //console.log('current :' +  $scope.playlist[0].url);
                 $scope.current_url = $scope.playlist[0].url;
             }
 
@@ -117,14 +117,14 @@
         }
 
         $scope.addAchive = function (archive) {
-            console.log('add');
+            //console.log('add');
             archive.selected = true;
             $scope.playlist.push(archive);
             $scope.checkPlaylist();
         }
 
         $scope.removeArchive = function (archive) {
-            console.log('remove');
+            //console.log('remove');
             archive.selected = false;
             $scope.playlist = $scope.playlist.filter(function (item, index) {
                 if (item.id != archive.id) return item;
@@ -139,7 +139,7 @@
 
             // Playlistが無い時は初期化する
             } else if ($scope.playlist.length == 0) {
-                console.log('init');
+                //console.log('init');
                 $scope.audio.pause();
                 $scope.audio.currentTime = 0;
                 $("#audio source").remove();
@@ -148,17 +148,17 @@
         }
 
         $scope.playArchive = function (archive) {
-            console.log(archive.url);
+            //console.log(archive.url);
             $scope.audio = document.getElementById("audio");
             $("#audio source").remove();
             $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mpeg\">");
             $scope.audio.load();
             $scope.audio.play();
-            console.log('played');
+            //console.log('played');
 
             $scope.audio.addEventListener('ended', function(){
-                console.log('on ended');
-                $scope.removeArchive($scope.playlist.shift());
+                //console.log('on ended');
+                $scope.$apply($scope.removeArchive($scope.playlist.shift()));
             });
         }
     }]);
