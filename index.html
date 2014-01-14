@@ -53,7 +53,7 @@
         font-size: x-small;
     }
     .vcenter {
-        margin-top: 10px;
+        margin-top: 8px;
     }
     .checked-size {
         font-size: 3em;
@@ -164,7 +164,7 @@
   <table class="table table-condensed table-striped table-hover">
     <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
-        <div class="row" style="width:100%">
+        <div class="row">
           <div class="col-xs-9 archive">
             <div class="program">{{archive.program}}</div>
             <div class="onair">{{archive.onair}}</div>
@@ -182,7 +182,7 @@
     </tr>
     <tr ng-show="current_tab == 'playlist'" ng-repeat="archive in playlist" ng-swipe-left="alert();">
       <td ng-click="clickPlaylistArchive(archive, $index)">
-        <div class="row" style="width:100%">
+        <div class="row">
           <div class="col-xs-9 archive">
             <div class="program">{{archive.program}}</div>
             <div class="onair">{{archive.onair}}</div>
@@ -191,7 +191,7 @@
           <div class="col-xs-3">
             <i class="fa vcenter checked-size" ng-class="{ 'fa-volume-up': $index == 0 && archive.played }"></i>
             <i class="fa vcenter checked-size" ng-class="{ 'fa-pause': $index == 0 && ! archive.played }"></i>
-            <i class="fa vcenter checked-size" ng-class="{ 'fa-check-circle': $index > 0 }"></i>
+            <i class="fa checked-size" ng-class="{ 'fa-check-circle vcenter': $index > 0 }"></i>
           </div>
         </div>
       </td>
