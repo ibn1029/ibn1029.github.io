@@ -1,0 +1,9 @@
+requires 'File::Which';
+requires 'Test::TCP';
+requires 'Selenium::Remote::Driver';
+requires 'Web::Query';
+requires 'JSON';
+requires 'Log::Minimal';
+requires 'File::Stamped';
+requires 'URI::Escape';
+requires 'HTML::Entities';
