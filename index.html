@@ -40,12 +40,12 @@
     <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
         <div class="row">
-          <div class="col-xs-9 archive">
+          <div class="col-xs-10 archive">
             <div class="program">{{archive.program}}</div>
             <div class="onair">{{archive.onair}}</div>
             <div class="dj">{{archive.dj}}</div>
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-2">
             <i class="fa fa-check-circle vcenter checked-size" ng-show="archive.selected"></i>
           </div>
         </div>
@@ -58,12 +58,12 @@
     <tr ng-show="current_tab == 'playlist'" ng-repeat="archive in playlist" ng-swipe-left="alert();">
       <td ng-click="clickPlaylistArchive(archive, $index)">
         <div class="row">
-          <div class="col-xs-9 archive">
+          <div class="col-xs-10 archive">
             <div class="program">{{archive.program}}</div>
             <div class="onair">{{archive.onair}}</div> ON AIR
             <div class="dj">{{archive.dj}}</div>
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-2">
             <i class="fa vcenter checked-size" ng-class="{ 'fa-volume-up': $index == 0 && archive.played }"></i>
             <i class="fa vcenter checked-size" ng-class="{ 'fa-pause': $index == 0 && ! archive.played }"></i>
             <i class="fa checked-size" ng-class="{ 'fa-check-circle vcenter': $index > 0 }"></i>
@@ -82,7 +82,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-animate.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-touch.js"></script>
-  <script src="/archives.json"></script>
   <script src="/main.js"></script>
 </body>
 </html>
