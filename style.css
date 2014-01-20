@@ -34,10 +34,6 @@ audio {
     -ms-filter: "alpha(opacity=30)";
 }
 
-.archive {
-    padding-left: 12px;
-}
-
 .program {
     font-weight: bold;
 }
