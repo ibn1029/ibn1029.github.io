@@ -34,6 +34,10 @@ audio {
     -ms-filter: "alpha(opacity=30)";
 }
 
+.archive {
+    height: 60px;
+}
+
 .program {
     font-weight: bold;
 }
@@ -47,12 +51,9 @@ audio {
     font-size: x-small;
 }
 
-.vcenter {
-    margin-top: 14px;
-}
-
-.checked-size {
-    font-size: 2em;
+.mark-base {
+    font-size: 3em;
+    margin-top: 12px;
 }
 
 .footer {

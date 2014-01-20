@@ -178,7 +178,7 @@ sub scrape_audiofile {
 sub generate_archives_js {
     my $data = shift;
     my $json = encode_json $data;
-    $json =~ s/&amp;/&/;
+    $json =~ s/&amp;/&/g; # unescape for ng-binding
     open my $fh, '>', 'archives.json';
     print $fh $json;
     close $fh;
