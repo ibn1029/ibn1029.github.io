@@ -12,7 +12,7 @@ use Log::Minimal;
 use File::Stamped;
 use Time::Piece;
 #use URI::Escape;
-#use HTML::Entities qw/decode_entities/;
+use HTML::Entities qw/decode_entities/;
 
 
 my $blockfm = 'http://block.fm';

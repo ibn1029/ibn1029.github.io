@@ -3,6 +3,12 @@ var myApp = angular.module("myApp", []);
 
 myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
 
+    $scope.init = function () {
+        console.log('init');
+        $scope.audio = document.getElementById("audio");
+        $("#audio").prepend("<source src=\"dummy.mp3\" type=\"audio/mp3\">");
+    }
+
     $http.get('/archives.json').success(function(data){
         $scope.archives = data;
     });
@@ -78,7 +84,7 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         console.log(archive.url);
         $scope.audio = document.getElementById("audio");
         $("#audio source").remove();
-        $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mpeg\">");
+        $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mp3\">");
         $scope.audio.load();
         $scope.audio.play();
         archive.played = true;
