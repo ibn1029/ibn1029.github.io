@@ -43,6 +43,7 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         });
         $scope.checkPlaylist();
     }
+
     $scope.clickPlaylistArchive = function (archive, loop_index) {
         if (loop_index == 0) {
             if ($scope.audio.paused) {
