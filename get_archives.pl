@@ -11,12 +11,12 @@ use JSON;
 use Log::Minimal;
 use File::Stamped;
 use Time::Piece;
-use URI::Escape;
-use HTML::Entities qw/decode_entities/;
+#use URI::Escape;
+#use HTML::Entities qw/decode_entities/;
 
 
 my $blockfm = 'http://block.fm';
-my $wait = 1;
+my $wait = 3;
 
 #
 # Config ofLog::Minimal
@@ -178,9 +178,9 @@ sub scrape_audiofile {
 sub generate_archives_js {
     my $data = shift;
     my $json = encode_json $data;
-    $json =~ s/&amp;/&/;
+    $json =~ s/&amp;/&/g; # unescape for ng-binding
     open my $fh, '>', 'archives.json';
-    print $fh encode_utf8('var archives = '.$json);
+    print $fh $json;
     close $fh;
 }
 __END__

@@ -13,8 +13,8 @@
 
   <div class="navbar-default navbar-fixed-top">
     <h1 class="app">Archive Player</h1>
-    <audio id="audio" controls> 
-      <suorce src="/dummy.mp3" type="audio/mpeg">
+    <audio id="audio" controls preload="none"> 
+      <!--<suorce src="/dummy.mp3" type="audio/mpeg">-->
       <p>Your browser does not support the audio element.</p>
     </audio>
     <div class="row tab">
@@ -39,14 +39,14 @@
   <table class="table table-condensed table-striped table-hover">
     <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
-        <div class="row">
-          <div class="col-xs-9 archive">
+        <div class="archive">
+          <div class="col-xs-10" style="padding-left: 0">
             <div class="program">{{archive.program}}</div>
-            <div class="onair">{{archive.onair}}</div>
+            <div class="onair">{{archive.onair}} ON AIR</div>
             <div class="dj">{{archive.dj}}</div>
           </div>
-          <div class="col-xs-3">
-            <i class="fa fa-check-circle vcenter checked-size" ng-show="archive.selected"></i>
+          <div class="col-xs-2">
+            <i class="fa fa-check-circle mark-base" ng-show="archive.selected"></i>
           </div>
         </div>
       </td>
@@ -57,16 +57,16 @@
     </tr>
     <tr ng-show="current_tab == 'playlist'" ng-repeat="archive in playlist" ng-swipe-left="alert();">
       <td ng-click="clickPlaylistArchive(archive, $index)">
-        <div class="row">
-          <div class="col-xs-9 archive">
+        <div class="archive">
+          <div class="col-xs-10" style="padding-left: 0">
             <div class="program">{{archive.program}}</div>
-            <div class="onair">{{archive.onair}}</div> ON AIR
+            <div class="onair">{{archive.onair}} ON AIR</div>
             <div class="dj">{{archive.dj}}</div>
           </div>
-          <div class="col-xs-3">
-            <i class="fa vcenter checked-size" ng-class="{ 'fa-volume-up': $index == 0 && archive.played }"></i>
-            <i class="fa vcenter checked-size" ng-class="{ 'fa-pause': $index == 0 && ! archive.played }"></i>
-            <i class="fa checked-size" ng-class="{ 'fa-check-circle vcenter': $index > 0 }"></i>
+          <div class="col-xs-2">
+            <i class="fa fa-volume-up mark-base" ng-show="$index == 0 && archive.played "></i>
+            <i class="fa fa-pause mark-base" ng-show="$index == 0 && ! archive.played "></i>
+            <i class="fa fa-check-circle mark-base" ng-show="$index > 0 "></i>
           </div>
         </div>
       </td>
@@ -77,12 +77,12 @@
     Archive Player <em><small>- for your BGM. -</small></em><br>
     <small>bgm.blockhash.info</small>
   </div>
-  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-animate.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-touch.js"></script>
-  <script src="/archives.json"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-animate.js"></script>-->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-touch.js"></script>-->
   <script src="/main.js"></script>
 </body>
 </html>

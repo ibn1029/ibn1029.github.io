@@ -12,6 +12,18 @@ DISTRIBUTIONS
       POSIX 0
       Time::Local 0
       perl 5.008004
+  Carp-1.32
+    pathname: Z/ZE/ZEFRAM/Carp-1.32.tar.gz
+    provides:
+      Carp 1.32
+      Carp::Heavy 1.32
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      IPC::Open3 1.0103
+      Test::More 0
+      strict 0
+      warnings 0
   Class-Inspector-1.28
     pathname: A/AD/ADAMK/Class-Inspector-1.28.tar.gz
     provides:
@@ -97,6 +109,47 @@ DISTRIBUTIONS
       File::Spec 0
       strict 0
       warnings 0
+  ExtUtils-MakeMaker-6.86
+    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-6.86.tar.gz
+    provides:
+      DynaLoader 6.86
+      ExtUtils::Command::MM 6.86
+      ExtUtils::Liblist 6.86
+      ExtUtils::Liblist::Kid 6.86
+      ExtUtils::MM 6.86
+      ExtUtils::MM_AIX 6.86
+      ExtUtils::MM_Any 6.86
+      ExtUtils::MM_BeOS 6.86
+      ExtUtils::MM_Cygwin 6.86
+      ExtUtils::MM_DOS 6.86
+      ExtUtils::MM_Darwin 6.86
+      ExtUtils::MM_MacOS 6.86
+      ExtUtils::MM_NW5 6.86
+      ExtUtils::MM_OS2 6.86
+      ExtUtils::MM_QNX 6.86
+      ExtUtils::MM_UWIN 6.86
+      ExtUtils::MM_Unix 6.86
+      ExtUtils::MM_VMS 6.86
+      ExtUtils::MM_VOS 6.86
+      ExtUtils::MM_Win32 6.86
+      ExtUtils::MM_Win95 6.86
+      ExtUtils::MY 6.86
+      ExtUtils::MakeMaker 6.86
+      ExtUtils::MakeMaker::Config 6.86
+      ExtUtils::MakeMaker::_version 6.86
+      ExtUtils::Mkbootstrap 6.86
+      ExtUtils::Mksymlists 6.86
+      ExtUtils::testlib 6.86
+      MM 6.86
+      MY 6.86
+      in 6.86
+    requirements:
+      Data::Dumper 0
+      DirHandle 0
+      File::Basename 0
+      File::Spec 0.8
+      Pod::Man 0
+      perl 5.006
   File-Listing-6.04
     pathname: G/GA/GAAS/File-Listing-6.04.tar.gz
     provides:
@@ -579,19 +632,6 @@ DISTRIBUTIONS
       Stream::Buffered::PerlIO undef
     requirements:
       ExtUtils::MakeMaker 6.36
-  Sub-Retry-0.06
-    pathname: T/TO/TOKUHIROM/Sub-Retry-0.06.tar.gz
-    provides:
-      Sub::Retry 0.06
-    requirements:
-      CPAN::Meta 0
-      CPAN::Meta::Prereqs 0
-      ExtUtils::CBuilder 0
-      ExtUtils::MakeMaker 6.59
-      Module::Build 0.38
-      Test::More 0.96
-      parent 0
-      perl 5.008001
   Test-Base-0.60
     pathname: I/IN/INGY/Test-Base-0.60.tar.gz
     provides:

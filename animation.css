@@ -1,0 +1,62 @@
+/* アニメーション定義 */
+/* アニメーション対象要素の基本的なスタイル */
+/*.animated {
+    padding:10px;
+    border:1px solid black;
+    background:white;
+}*/
+/* 表示・非表示時のアニメーションを定義 */
+.animated.ng-hide-add,
+.animated.ng-hide-remove {
+    -webkit-transition:all linear 0.25s;
+    -moz-transition:all linear 0.25s;
+    -o-transition:all linear 0.25s;
+    transition:all linear 0.25s;
+    /*下記の定義に注目(詳細は後述)*/
+    display:block!important;
+}
+/* ng-hide適用(=非表示)の終点となるスタイル */
+/* また、ng-hide-removeに移行する際の始点のスタイルでもある */
+.animated.ng-hide-add.ng-hide-add-active,
+.animated.ng-hide-remove {
+    opacity:0;
+}
+/* ng-hide削除(=表示)して到達するスタイル */
+/* また、ng-hide-addに移行する際の始点のスタイルでもある */
+.animated.ng-hide-remove.ng-hide-remove-active,
+.animated.ng-hide-add {
+    opacity:1;
+}
+/* アニメーション対象要素の基本的なスタイル */
+/*.repeat-animated {
+    padding:10px;
+    border:1px solid black;
+    background:white;
+}*/
+/* 表示・非表示時のアニメーションを定義 */
+.repeat-animated.ng-move,
+.repeat-animated.ng-enter,
+.repeat-animated.ng-leave {
+    -webkit-transition:all linear 0.5s;
+    -moz-transition:all linear 0.5s;
+    -o-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    /*下記の定義に注目(詳細は後述)*/
+    display:block!important;
+}
+/* ng-hide適用(=非表示)の終点となるスタイル */
+/* また、ng-hide-removeに移行する際の始点のスタイルでもある */
+.repeat-animated.ng-leave.ng-leave-active,
+.repeat-animated.ng-move,
+.repeat-animated.ng-enter {
+    opacity: 0;
+    max-height: 0;
+}
+/* ng-hide削除(=表示)して到達するスタイル */
+/* また、ng-hide-addに移行する際の始点のスタイルでもある */
+.repeat-animated.ng-leave,
+.repeat-animated.ng-move.ng-move-active,
+.repeat-animated.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-height: 100px;
+}

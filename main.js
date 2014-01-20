@@ -1,7 +1,12 @@
-var myApp = angular.module("myApp", ['ngAnimate', 'ngTouch']);
+//var myApp = angular.module("myApp", ['ngAnimate', 'ngTouch']);
+var myApp = angular.module("myApp", []);
 
-myApp.controller("myCtrl", [ '$scope', function($scope, audio) {
-    $scope.archives = archives;
+myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
+
+    $http.get('/archives.json').success(function(data){
+        $scope.archives = data;
+    });
+
     $scope.current_tab = 'archives'; // 初期タブ
     $scope.changeTab = function (tab) {
        $scope.current_tab = tab;
@@ -39,6 +44,7 @@ myApp.controller("myCtrl", [ '$scope', function($scope, audio) {
         });
         $scope.checkPlaylist();
     }
+
     $scope.clickPlaylistArchive = function (archive, loop_index) {
         if (loop_index == 0) {
             if ($scope.audio.paused) {
