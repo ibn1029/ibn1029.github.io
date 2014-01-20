@@ -180,7 +180,7 @@ sub generate_archives_js {
     my $json = encode_json $data;
     $json =~ s/&amp;/&/;
     open my $fh, '>', 'archives.json';
-    print $fh 'var archives = '.$json;
+    print $fh encode_utf8('var archives = '.$json);
     close $fh;
 }
 __END__
