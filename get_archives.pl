@@ -16,7 +16,7 @@ use HTML::Entities qw/decode_entities/;
 
 
 my $blockfm = 'http://block.fm';
-my $wait = 1;
+my $wait = 3;
 
 #
 # Config ofLog::Minimal
