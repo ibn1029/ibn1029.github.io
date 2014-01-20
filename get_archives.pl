@@ -11,8 +11,8 @@ use JSON;
 use Log::Minimal;
 use File::Stamped;
 use Time::Piece;
-use URI::Escape;
-use HTML::Entities qw/decode_entities/;
+#use URI::Escape;
+#use HTML::Entities qw/decode_entities/;
 
 
 my $blockfm = 'http://block.fm';
@@ -180,7 +180,7 @@ sub generate_archives_js {
     my $json = encode_json $data;
     $json =~ s/&amp;/&/;
     open my $fh, '>', 'archives.json';
-    print $fh 'var archives = '.$json;
+    print $fh $json;
     close $fh;
 }
 __END__
