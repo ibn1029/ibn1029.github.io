@@ -1,4 +1,5 @@
-var myApp = angular.module("myApp", ['ngAnimate', 'ngTouch']);
+//var myApp = angular.module("myApp", ['ngAnimate', 'ngTouch']);
+var myApp = angular.module("myApp", []);
 
 myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
 
