@@ -35,11 +35,12 @@ audio {
 }
 
 .archive {
-    height: 60px;
+    height: 48px;
 }
 
 .program {
     font-weight: bold;
+    font-size: 0.95em;
 }
 
 .onair {
@@ -52,8 +53,8 @@ audio {
 }
 
 .mark-base {
-    font-size: 3em;
-    margin-top: 12px;
+    font-size: 2em;
+    margin-top: -6px;
 }
 
 .footer {

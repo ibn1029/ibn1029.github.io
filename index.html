@@ -39,13 +39,19 @@
     <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
         <div class="archive">
-          <div class="col-xs-10" style="padding-left: 0">
-            <div class="program">{{archive.program}}</div>
-            <div class="onair">{{archive.onair}} ON AIR</div>
-            <div class="dj">{{archive.dj}}</div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="program">{{archive.program}}</div>
+            </div>
           </div>
-          <div class="col-xs-2">
-            <i class="fa fa-check-circle mark-base" ng-show="archive.selected"></i>
+          <div class="row">
+            <div class="col-xs-10">
+              <div class="onair">{{archive.onair}} ON AIR</div>
+              <div class="dj">{{archive.dj}}</div>
+            </div>
+            <div class="col-xs-2">
+              <i class="fa fa-check-circle mark-base" ng-show="archive.selected"></i>
+            </div>
           </div>
         </div>
       </td>
