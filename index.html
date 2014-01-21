@@ -63,15 +63,21 @@
     <tr ng-show="current_tab == 'playlist'" ng-repeat="archive in playlist" ng-swipe-left="alert();">
       <td ng-click="clickPlaylistArchive(archive, $index)">
         <div class="archive">
-          <div class="col-xs-10" style="padding-left: 0">
-            <div class="program">{{archive.program}}</div>
-            <div class="onair">{{archive.onair}} ON AIR</div>
-            <div class="dj">{{archive.dj}}</div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="program">{{archive.program}}</div>
+            </div>
           </div>
-          <div class="col-xs-2">
-            <i class="fa fa-volume-up mark-base" ng-show="$index == 0 && archive.played "></i>
-            <i class="fa fa-pause mark-base" ng-show="$index == 0 && ! archive.played "></i>
-            <i class="fa fa-check-circle mark-base" ng-show="$index > 0 "></i>
+          <div class="row">
+            <div class="col-xs-10">
+              <div class="onair">{{archive.onair}} ON AIR</div>
+              <div class="dj">{{archive.dj}}</div>
+            </div>
+            <div class="col-xs-2">
+              <i class="fa fa-volume-up mark-base" ng-show="$index == 0 && archive.played "></i>
+              <i class="fa fa-pause mark-base" ng-show="$index == 0 && ! archive.played "></i>
+              <i class="fa fa-check-circle mark-base" ng-show="$index > 0 "></i>
+            </div>
           </div>
         </div>
       </td>
