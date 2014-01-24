@@ -4,4 +4,5 @@ if [ `hostname` == dti-vps-srv85 ]; then
 else
     cd /Users/viage/Work/App/ibn1029.github.io
 fi
+exec $SHELL -l
 carton exec perl get_archives.pl
