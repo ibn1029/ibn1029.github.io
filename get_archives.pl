@@ -179,7 +179,7 @@ sub generate_archives_js {
     my $data = shift;
     my $json = encode_json $data;
     $json =~ s/&amp;/&/g; # unescape for ng-binding
-    open my $fh, '>', 'archives.json';
+    open my $fh, '>', 'public/archives.json';
     print $fh $json;
     close $fh;
 }
