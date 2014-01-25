@@ -99,7 +99,12 @@ for my $archive (@sorted_archives) {
 #
 undef $ua;
 undef $phantomjs;
-generate_archives_js(\@sc_archives) if scalar @sc_archives > 10;
+if (scalar @sc_archives > 10) {
+    infof('Generate json');
+    generate_archives_js(\@sc_archives)
+} else {
+    infof('No generate json');
+}
 
 exit;
 
