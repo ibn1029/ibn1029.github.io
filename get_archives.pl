@@ -99,7 +99,7 @@ for my $archive (@sorted_archives) {
 #
 undef $ua;
 undef $phantomjs;
-generate_archives_js(\@sc_archives);
+generate_archives_js(\@sc_archives) if scalar @sc_archives > 10;
 
 exit;
 
