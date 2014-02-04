@@ -19,7 +19,7 @@ my $blockfm = 'http://block.fm';
 my $wait = 3;
 
 #
-# Config ofLog::Minimal
+# Config of Log::Minimal
 #
 BEGIN {
     my $fh = File::Stamped->new(
