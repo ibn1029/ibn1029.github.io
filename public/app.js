@@ -45,17 +45,17 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
     }
 
     $scope.clickPlaylistArchive = function (archive, loop_index) {
-        if (loop_index == 0) {
-            if ($scope.audio.paused) {
-                $scope.audio.play();
-                archive.played = true;
-            } else {
-                $scope.audio.pause();
-                archive.played = false;
-            }
-        } else {
+        //if (loop_index == 0) {
+        //    if ($scope.audio.paused) {
+        //        $scope.audio.play();
+        //        archive.played = true;
+        //    } else {
+        //        $scope.audio.pause();
+        //        archive.played = false;
+        //    }
+        //} else {
             $scope.removeArchive(archive);
-        }
+        //}
     }
 
     $scope.checkPlaylist = function() {
