@@ -29,8 +29,8 @@
         </h4>
       </div>
       <div class="col-xs-2 text-left">
-        <h4 ng-class="{ 'active': active }" ng-cloak>
-          <span class="badge ng-cloak" ng-show="playlist.length > 0" ng-cloak>{{playlist.length}}</span>
+        <h4 ng-class="{ 'active': active }">
+          <span class="badge" ng-show="playlist.length > 0">{{playlist.length}}</span>
         </h4>
       </div>
     </div>
@@ -41,35 +41,35 @@
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
         <div class="archive">
           <div class="col-xs-12" style="padding-left: 0">
-            <div class="program" ng-cloak>{{archive.program}}</div>
+            <div class="program">{{archive.program}}</div>
           </div>
           <div class="col-xs-10" style="padding-left: 0">
-            <div class="onair" ng-cloak>{{archive.onair}} ON AIR</div>
-            <div class="genre" ng-cloak>Genre: {{archive.genre}}</div>
-            <div class="dj" ng-cloak>Djs: {{archive.dj}}</div>
+            <div class="onair">{{archive.onair}} ON AIR</div>
+            <div class="genre">Genre: {{archive.genre}}</div>
+            <div class="dj">Djs: {{archive.dj}}</div>
           </div>
-          <div class="col-xs-2" ng-cloak>
+          <div class="col-xs-2">
             <i class="fa fa-check-circle mark-base" ng-show="archive.selected"></i>
           </div>
         </div>
       </td>
     </tr>
 
-    <tr ng-show="current_tab == 'playlist' && playlist.length == 0" ng-cloak>
+    <tr ng-show="current_tab == 'playlist' && playlist.length == 0">
       <td><p class="text-center">Archive is not selected.</p></td>
     </tr>
     <tr ng-show="current_tab == 'playlist'" ng-repeat="archive in playlist">
       <td ng-click="clickPlaylistArchive(archive, $index)">
         <div class="archive">
           <div class="col-xs-12" style="padding-left: 0">
-            <div class="program" ng-cloak>{{archive.program}}</div>
+            <div class="program">{{archive.program}}</div>
           </div>
           <div class="col-xs-10" style="padding-left: 0">
-            <div class="onair" ng-cloak>{{archive.onair}} ON AIR</div>
-            <div class="genre" ng-cloak>Genre: {{archive.genre}}</div>
-            <div class="dj" ng-cloak>Djs: {{archive.dj}}</div>
+            <div class="onair">{{archive.onair}} ON AIR</div>
+            <div class="genre">Genre: {{archive.genre}}</div>
+            <div class="dj">Djs: {{archive.dj}}</div>
           </div>
-          <div class="col-xs-2" ng-cloak>
+          <div class="col-xs-2">
             <i class="fa fa-volume-up mark-base" ng-show="$index == 0 && archive.played "></i>
             <i class="fa fa-pause mark-base" ng-show="$index == 0 && ! archive.played "></i>
             <i class="fa fa-check-circle mark-base" ng-show="$index > 0 "></i>
