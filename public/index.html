@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='myApp' ng-controller="myCtrl" __data-ng-init="init()">
+<html ng-app='myApp' ng-controller="myCtrl">
 <head>
   <title>Archive Player</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,14 +29,14 @@
         </h4>
       </div>
       <div class="col-xs-2 text-left">
-        <h4 ng-class="{ 'active': active }">
+        <h4 ng-class="{ 'active': active }" ng-cloak>
           <span class="badge" ng-show="playlist.length > 0">{{playlist.length}}</span>
         </h4>
       </div>
     </div>
   </div>
 
-  <table class="table table-condensed table-striped table-hover">
+  <table class="table table-condensed table-striped table-hover" ng-cloak>
     <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
         <div class="archive">
