@@ -29,14 +29,14 @@
         </h4>
       </div>
       <div class="col-xs-2 text-left">
-        <h4 ng-class="{ 'active': active }" ng-cloak>
-          <span class="badge" ng-show="playlist.length > 0">{{playlist.length}}</span>
+        <h4 ng-class="{ 'active': active }">
+          <span class="badge" ng-show="playlist.length > 0" ng-cloak>{{playlist.length}}</span>
         </h4>
       </div>
     </div>
   </div>
 
-  <table class="table table-condensed table-striped table-hover" ng-cloak>
+  <table class="table table-condensed table-striped table-hover">
     <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
         <div class="archive">
