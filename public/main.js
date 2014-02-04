@@ -9,7 +9,7 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         $("#audio").prepend("<source src=\"dummy.mp3\" type=\"audio/mp3\">");
     }
 
-    $http.get('/archives.json').success(function(data){
+    $http.get('archives.json').success(function(data){
         $scope.archives = data;
     });
 
