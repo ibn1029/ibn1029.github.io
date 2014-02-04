@@ -2,4 +2,3 @@
 logs/*
 local/
 .perl-version
-*.json
