@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body ng-cloak>
 
   <div class="navbar-default navbar-fixed-top">
     <h1 class="app">Archive Player</h1>
@@ -36,7 +36,7 @@
   </div>
 
   <table class="table table-condensed table-striped table-hover">
-    <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives" ng-cloak>
+    <tr ng-show="current_tab == 'archives'" ng-repeat="archive in archives">
       <td ng-click="selectArchive(archive)" ng-class="{ 'selected': archive.selected }">
         <div class="archive">
           <div class="col-xs-12" style="padding-left: 0">
