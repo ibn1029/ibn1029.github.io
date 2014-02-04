@@ -1,3 +1,12 @@
+function loadAngularJS(d) {
+    var a = d.createElement('script');
+    a.async = 1;
+    a.src = '//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js';
+    var s = d.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(a, s);
+}
+
+
 //var myApp = angular.module("myApp", ['ngAnimate', 'ngTouch']);
 var myApp = angular.module("myApp", []);
 
