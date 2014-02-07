@@ -1,0 +1,38 @@
+{
+    "stat": "ok", 
+    "program": {
+        "subtitle": "Afrojack", 
+        "soundcloud_disabled": false, 
+        "date": "2014/01/27", 
+        "program_title": "Jacked radio", 
+        "ignore_archive": false, 
+        "end": {"$date": 1390842000000}, 
+        "uuid": {"$uuid": "2ae3d763510e49ada3830f10581344b9"}, 
+        "note": "", 
+        "start": {"$date": 1390838400000}, 
+        "program_url": "/program/jacked_radio/", 
+        "picture": {"url": "/playlist/images/161_jacked_radio_360.jpg"}, 
+        "users": {
+            "blockfmjp": {
+                "superuser": true, 
+                "name": "block.fm", 
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/2531095200/ssetfq92rb1gfw6b2t1l_normal.jpeg", 
+                "profile_image_url": "http://pbs.twimg.com/profile_images/2531095200/ssetfq92rb1gfw6b2t1l_normal.jpeg", 
+                "note": "", 
+                "authed": true, 
+                "_id": "blockfmjp", 
+                "screen_name": "blockfmjp"
+            }
+        }, 
+        "start_time": "25:00", 
+        "monthly_program": true, 
+        "tracks": [{"mix_title": "", "track_title": "The Spark (Lost Stories Remix) (Island)", "artist": "Afrojack ft Spree Wilson", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "The Opposition (Bobby Burns Remix) (Unknown)", "artist": "Parker Ighile", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Photobomb (Spinnin)", "artist": "Apster", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Tigon (Unknown)", "artist": "Thomas Feelman", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Titan (Spinnin)", "artist": "Blasterjaxx & Badd Dimes", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Afrika (Wall)", "artist": "D-wayne", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Touching The Sky (Short Edit) (Blackout Music)", "artist": "Maddix", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Lowdown (Spinnin)", "artist": "Vicetone", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Musician (Wall)", "artist": "Afrojack", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "Original", "track_title": "Riser", "release_id": "150503", "remixer": "", "artist": "Marc Benjamin", "track_id": "719831", "users": ["blockfmjp"]}, {"mix_title": "", "track_title": "Lose It vs The Code (Zach & Cedre Bootleg)", "artist": "Deorro vs Ummet Ozcan, W&W", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Bio Riddim (Unknown)", "artist": "Vato Gonzalez", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Ruby (Axtone)", "artist": "Deniz Koyu", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Soliders (Spinnin)", "artist": "Mike Hawkins", "users": ["blockfmjp"], "remixer": ""}, {"mix_title": "", "track_title": "Red Lights (Afrojack Remix) (Positiva / PMAM / Musical Freedom)", "artist": "Tiesto", "users": ["blockfmjp"], "remixer": ""}], 
+        "picture_ref": {"$id": "161_jacked_radio_360.jpg", "$ref": "pictures"}, 
+        "hashtag": "#jackedradio_bfm", 
+        "genre": "EDM", 
+        "soundcloud": "http://soundcloud.com/tcy-radio-tokyo/jacked-radio-2014-01-27/s-n49ed", 
+        "broadcast_type": "recorded", 
+        "end_time": "26:00", 
+        "_id": {"$oid": "52b2c12e16bcfe4f1a000006"}
+    }
+}
