@@ -1,10 +1,15 @@
 #!/bin/bash
-if [ `hostname` == 'dti-vps-srv85' ]; then
-    HOME=/home/viage
-    source $HOME/.bash_profile
-    APP=$HOME/work/ibn1029.github.io
-    PERLVER=5.14.4
-    carton=$HOME/.plenv/versions/$PERLVER/bin/carton
-    cd $APP
-    $carton exec perl get_archives.pl
+#set -e
+#set -x
+
+app=get_archives.pl
+app_dir=ibn1029.github.io
+if [ $MODE == 'production' ]; then
+    base=$HOME/work/$app_dir
+else
+    base=$HOME/Work/App/$app_dir
 fi
+carton=$HOME/.plenv/shims/carton
+
+cd $base
+$carton exec perl $app
