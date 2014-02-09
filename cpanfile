@@ -7,3 +7,4 @@ requires 'Log::Minimal';
 requires 'File::Stamped';
 requires 'URI::Escape';
 requires 'HTML::Entities';
+requires 'LWP::UserAgent';
