@@ -3,3 +3,4 @@ logs/*
 local/
 .perl-version
 archives.json
+cpanfile.snapshot
