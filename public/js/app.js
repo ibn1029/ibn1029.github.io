@@ -77,7 +77,7 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         console.log(archive.url);
         $scope.audio = document.getElementById("audio");
         $("#audio source").remove();
-        $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mp3\">");
+        $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mpeg\">");
         $scope.audio.load();
         $scope.audio.play();
         archive.played = true;
