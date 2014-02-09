@@ -89,7 +89,8 @@ for my $archive (@sorted_archives) {
     next unless $archive->{soundcloud};
     infof($archive->{soundcloud});
     if (my $audio_url = scrape_audiofile($archive->{soundcloud})) {
-        $archive->{url} = _get_redirect_url($audio_url);
+        #$archive->{url} = _get_redirect_url($audio_url);
+        $archive->{url} = $audio_url;
         push @sc_archives, $archive;
     }
 }
@@ -180,14 +181,14 @@ sub scrape_audiofile {
     return;
 }
 
-sub _get_redirect_url {
-    my $url = shift or die 'No archive url.';
-    my $ua = LWP::UserAgent->new( max_redirect => 0);
-    my $res = $ua->head($url);
-    my $redirect_url = $res->header('Location');
-    debugf($redirect_url);
-    return $redirect_url;
-}
+#sub _get_redirect_url {
+#    my $url = shift or die 'No archive url.';
+#    my $ua = LWP::UserAgent->new( max_redirect => 0);
+#    my $res = $ua->head($url);
+#    my $redirect_url = $res->header('Location');
+#    debugf($redirect_url);
+#    return $redirect_url;
+#}
 
 
 sub generate_archives_js {
