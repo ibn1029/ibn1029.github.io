@@ -78,8 +78,16 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         $scope.audio = document.getElementById("audio");
         $("#audio source").remove();
         $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mpeg\">");
-        $scope.audio.load();
-        $scope.audio.play();
+        //$scope.audio.load();
+        //$scope.audio.play();
+
+        var context = new webkitAudioContext();
+        var analyser = context.createAnalyser();
+        var source = context.createMediaElementSource($scope.audio);
+        source.connect(analyser);
+        analyser.connect(context.destination);
+
+
 /*
         var Buffer;
         var context = new webkitAudioContext();
