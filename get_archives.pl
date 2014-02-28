@@ -40,7 +40,7 @@ my $bin = scalar which 'phantomjs';
 my $phantomjs = Test::TCP->new(
     code => sub {
         my $port = shift; # assign undefined local port
-        exec $bin, '--webdriver', $port;
+        exec $bin, '--webdriver', $port, '--debug', 'true';
         die "cannot execute $bin: $!";
     }
 );
