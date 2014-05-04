@@ -16,7 +16,7 @@ use HTML::Entities qw/decode_entities/;
 use LWP::UserAgent;
 
 my $blockfm = 'http://block.fm';
-my $wait = 3;
+my $wait = 1;
 
 #
 # Config of Log::Minimal
@@ -40,7 +40,7 @@ my $bin = scalar which 'phantomjs';
 my $phantomjs = Test::TCP->new(
     code => sub {
         my $port = shift; # assign undefined local port
-        exec $bin, '--webdriver', $port;
+        exec $bin, '--webdriver',  $port;
         die "cannot execute $bin: $!";
     }
 );
@@ -172,7 +172,7 @@ sub _get_wday {
 
 sub scrape_audiofile {
     my $url = shift or die 'No soundcloud url.';
-    my $wq = wq($url)->html();
+    my $wq = wq($url)->html() if wq($url);
     if ($wq =~ /window\.SC\.bufferTracks\.push\((.*)\);/) {
         my $sc_json = decode_json($1);
         my $stream_url = URI->new($sc_json->{streamUrl})->as_string;
