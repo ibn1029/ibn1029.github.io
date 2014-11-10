@@ -173,7 +173,6 @@ sub _get_wday {
 
 sub scrape_audiofile {
     my $url = shift or die 'No soundcloud url.';
-<<<<<<< HEAD
 
     # url: https://soundcloud.com/tcy-radio-tokyo/hogehoge/${secret_token}
     $url =~ m!/(s-\w+)$!;
@@ -195,15 +194,6 @@ sub scrape_audiofile {
     die $res->status_line unless $res->is_success;
     my $json = decode_json($res->content);
     return decode_entities($json->{http_mp3_128_url});
-=======
-    my $wq = wq($url)->html() if wq($url);
-    if ($wq =~ /window\.SC\.bufferTracks\.push\((.*)\);/) {
-        my $sc_json = decode_json($1);
-        my $stream_url = URI->new($sc_json->{streamUrl})->as_string;
-        return decode_entities($stream_url);
-    }
-    return;
->>>>>>> e284ee3a72848635666f2f60c7348f975f7efd25
 }
 
 #sub _get_redirect_url {
