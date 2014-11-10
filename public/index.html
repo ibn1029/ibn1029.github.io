@@ -11,11 +11,19 @@
 <body>
 
   <div class="navbar-default navbar-fixed-top">
-    <h1 class="app">Archive Player</h1>
-    <audio id="audio" controls preload="auto"> 
-      <source src="dummy.mp3" type="audio/mpeg">
-      <p>Your browser does not support the audio element.</p>
-    </audio>
+
+    <div class="row">
+      <h1 class="col-xs-12 app">Archive Player</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <audio id="audio" controls preload="auto" autoplay> 
+          <source src="dummy.mp3" type="audio/mpeg">
+          <p>Your browser does not support the audio element.</p>
+        </audio>
+      </div>
+    </div>
 
     <div class="row tab">
       <div class="col-xs-6 text-center tab-border">
@@ -35,7 +43,7 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- End of navbar -->
 
   <table class="table table-condensed table-striped table-hover">
     <!-- Archives -->

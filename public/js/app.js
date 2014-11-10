@@ -4,6 +4,7 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
 
     $http.get('archives.json').success(function(data){
         $scope.archives = data;
+        $scope.checkPlaylist();
     });
 
     $scope.current_tab = 'archives'; // 初期タブ
@@ -66,6 +67,7 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         // Playlistが無い時は初期化する
         } else if ($scope.playlist.length == 0) {
             console.log('init');
+            $scope.audio = document.getElementById("audio");
             $scope.audio.pause();
             $scope.audio.currentTime = 0;
             $("#audio source").remove();
@@ -78,34 +80,8 @@ myApp.controller("myCtrl", [ '$scope', '$http', function($scope, $http) {
         $scope.audio = document.getElementById("audio");
         $("#audio source").remove();
         $("#audio").prepend("<source src=\"" + archive.url + "\" type=\"audio/mpeg\">");
-        //$scope.audio.load();
-        //$scope.audio.play();
-
-        var context = new webkitAudioContext();
-        var analyser = context.createAnalyser();
-        var source = context.createMediaElementSource($scope.audio);
-        source.connect(analyser);
-        analyser.connect(context.destination);
-
-
-/*
-        var Buffer;
-        var context = new webkitAudioContext();
-        var request = new XMLHttpRequest();
-        request.open('GET', archive.url, true);
-        request.responseType = 'arraybuffer';
-        request.onload = function() {
-            context.decodeAudioData(request.response, function(buffer) {
-                Buffer = buffer;
-            }, onError);
-        }
-        request.send();
-        var source = context.createBufferSource();
-        source.buffer = Buffer;
-        source.connect(context.destination);
-        source.noteOn(0);
-*/
-
+        $scope.audio.load();
+        $scope.audio.play();
         archive.played = true;
         console.log('played');
 

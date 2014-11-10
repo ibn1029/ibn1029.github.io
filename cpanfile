@@ -8,3 +8,5 @@ requires 'File::Stamped';
 requires 'URI::Escape';
 requires 'HTML::Entities';
 requires 'LWP::UserAgent';
+requires 'Furl';
+requires 'IO::Socket::SSL';

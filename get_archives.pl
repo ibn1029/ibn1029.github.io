@@ -11,12 +11,13 @@ use JSON;
 use Log::Minimal;
 use File::Stamped;
 use Time::Piece;
-#use URI::Escape;
+use URI::Escape;
 use HTML::Entities qw/decode_entities/;
 use LWP::UserAgent;
+use Furl;
 
 my $blockfm = 'http://block.fm';
-my $wait = 3;
+my $wait = 1;
 
 #
 # Config of Log::Minimal
@@ -40,7 +41,8 @@ my $bin = scalar which 'phantomjs';
 my $phantomjs = Test::TCP->new(
     code => sub {
         my $port = shift; # assign undefined local port
-        exec $bin, '--webdriver', $port, '--debug', 'true';
+        #exec $bin, '--webdriver', $port, '--debug', 'true';
+        exec $bin, '--webdriver', $port;
         die "cannot execute $bin: $!";
     }
 );
@@ -172,13 +174,27 @@ sub _get_wday {
 
 sub scrape_audiofile {
     my $url = shift or die 'No soundcloud url.';
-    my $wq = wq($url)->html();
-    if ($wq =~ /window\.SC\.bufferTracks\.push\((.*)\);/) {
-        my $sc_json = decode_json($1);
-        my $stream_url = URI->new($sc_json->{streamUrl})->as_string;
-        return decode_entities($stream_url);
-    }
-    return;
+
+    # url: https://soundcloud.com/tcy-radio-tokyo/hogehoge/${secret_token}
+    $url =~ m!/(s-\w+)$!;
+    my $secret_token = $1;
+
+    my $furl = Furl->new;
+    my $res = $furl->get($url);
+    die $res->status_line unless $res->is_success;
+    $res->content =~ m!api\.soundcloud\.com%2Ftracks%2F(\d+)%3F!;
+    my $track_id = $1;
+
+    # blockfmのsoundcloud apiのclient id???
+    my $client_id = 'b45b1aa10f1ac2941910a7f0d10f8e28';
+
+    my $stream_info_str = "https://api.soundcloud.com/i1/tracks/${track_id}/streams?secret_token=${secret_token}&client_id=${client_id}";
+    my $stream_info_url = URI->new($stream_info_str)->as_string;
+
+    $res = $furl->get($stream_info_url);
+    die $res->status_line unless $res->is_success;
+    my $json = decode_json($res->content);
+    return decode_entities($json->{http_mp3_128_url});
 }
 
 #sub _get_redirect_url {
